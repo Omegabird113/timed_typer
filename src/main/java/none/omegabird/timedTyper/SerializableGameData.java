@@ -1,3 +1,5 @@
+package none.omegabird.timedTyper;
+
 public class SerializableGameData {
    // This should ONLY be used as an interim object to load/save GameData objects from/to files
     public long score;

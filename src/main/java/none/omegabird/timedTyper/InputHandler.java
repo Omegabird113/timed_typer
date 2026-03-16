@@ -1,3 +1,5 @@
+package none.omegabird.timedTyper;
+
 import org.apache.commons.text.WordUtils;
 
 import java.time.Duration;

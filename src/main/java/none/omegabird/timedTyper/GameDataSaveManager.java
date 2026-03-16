@@ -1,3 +1,5 @@
+package none.omegabird.timedTyper;
+
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;

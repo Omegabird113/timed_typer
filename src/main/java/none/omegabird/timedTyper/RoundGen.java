@@ -1,3 +1,5 @@
+package none.omegabird.timedTyper;
+
 import java.util.List;
 import java.util.Random;
 
