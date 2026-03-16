@@ -17,11 +17,11 @@ public class GameData {
         this.scoreCalculator = Objects.requireNonNullElse(scoreCalculator, new Scorer());
         this.scanner = Objects.requireNonNull(scanner);
     }
-    GameData(SerializableGameData gd, ScoreCalculator scoreCalculator, Scanner scanner) {
-        Objects.requireNonNull(gd);
-        this.score = gd.score;
-        this.multiplier = gd.multiplier;
-        this.difficulty = gd.difficulty;
+    GameData(SerializableGameData sgd, ScoreCalculator scoreCalculator, Scanner scanner) {
+        Objects.requireNonNull(sgd);
+        this.score = sgd.score;
+        this.multiplier = sgd.multiplier;
+        this.difficulty = sgd.difficulty;
         this.scoreCalculator = Objects.requireNonNullElse(scoreCalculator, new Scorer());
         this.scanner = Objects.requireNonNull(scanner);
     }

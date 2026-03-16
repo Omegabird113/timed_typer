@@ -4,13 +4,12 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        final String roundAutoSaveLocation = ".lastGame";
+    private static final String roundAutoSaveLocation = ".lastGame";
 
+    public static void main(String[] args) {
         GameData gd = Objects.requireNonNullElse(GameDataSaveManager.tryLoad(args), new GameData(0,1f,1, new Scorer(), new Scanner(System.in)));
-        Scanner scanner = gd.getScanner();
-        Objects.requireNonNull(scanner);
-        InputHandler ih = new InputHandler();
+        final Scanner scanner = gd.getScanner();
+        final InputHandler ih = new InputHandler();
 
         System.out.println("Press enter to play: ");
         scanner.nextLine();
