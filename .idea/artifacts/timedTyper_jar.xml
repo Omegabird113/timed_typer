@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="timedTyper:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/timedTyper_jar</output-path>
+    <root id="archive" name="timedTyper.jar">
+      <element id="module-output" name="timedTyper" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.19.2/jackson-annotations-2.19.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.19.2/jackson-core-2.19.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-text/1.13.1/commons-text-1.13.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.17.0/commons-lang3-3.17.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.19.2/jackson-databind-2.19.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
