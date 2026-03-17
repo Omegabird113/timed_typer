@@ -25,7 +25,7 @@ final public class GameDataSaveManager {
                 ObjectMapper objectMapper = new ObjectMapper();
                 try {
                     SerializableGameData sgd = objectMapper.readValue(file, SerializableGameData.class);
-                    System.out.println("Loaded game at " + gameFileLocation + " successfully. You have a score of " + sgd.score + " to start.");
+                    System.out.println("Loaded game at " + gameFileLocation + " successfully. You have a score of " + sgd.getScore() + " to start.");
                     return new GameData(sgd, new Scorer());
                 } catch (Exception e) {
                     System.out.printf("ERROR: The file failed to load into the Game Object. \ndue to this, the file (%s) has not been loaded.\n", gameFileLocation);

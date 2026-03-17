@@ -1,16 +1,21 @@
 package none.omegabird.timedTyper;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SerializableGameData {
     // This should ONLY be used as an interim object to load/save GameData objects from/to files
-    public long score;
-    public float multiplier;
-    public int difficulty;
 
-    public SerializableGameData() {
+    private final long score;
+    public final float multiplier;
+    public final int difficulty;
 
-    }
-
-    public SerializableGameData(long score, float multiplier, int difficulty) {
+    @JsonCreator
+    public SerializableGameData(
+        @JsonProperty("score") long score,
+        @JsonProperty("multiplier") float multiplier,
+        @JsonProperty("difficulty") int difficulty
+    ) {
         this.score = score;
         this.multiplier = multiplier;
         this.difficulty = difficulty;
@@ -20,5 +25,15 @@ public class SerializableGameData {
         this.score = gd.getScore();
         this.multiplier = gd.getMultiplier();
         this.difficulty = gd.getDifficulty();
+    }
+
+    public long getScore() {
+        return score;
+    }
+    public float getMultiplier() {
+        return multiplier;
+    }
+    public int getDifficulty() {
+        return difficulty;
     }
 }

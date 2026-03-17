@@ -1,7 +1,6 @@
 package none.omegabird.timedTyper;
 
 import java.util.Objects;
-import java.util.Scanner;
 
 public class GameData {
     private long score;
@@ -17,9 +16,9 @@ public class GameData {
     }
     GameData(SerializableGameData sgd, ScoreCalculator scoreCalculator) {
         Objects.requireNonNull(sgd);
-        this.score = sgd.score;
-        this.multiplier = sgd.multiplier;
-        this.difficulty = sgd.difficulty;
+        this.score = sgd.getScore();
+        this.multiplier = sgd.getMultiplier();
+        this.difficulty = sgd.getDifficulty();
         this.scoreCalculator = Objects.requireNonNullElse(scoreCalculator, new Scorer());
     }
 
