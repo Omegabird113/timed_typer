@@ -54,6 +54,6 @@ public class RoundData {
 
     @Override
     public String toString() {
-        return "RoundData(prompt='" + this.prompt + "', timeLimit=" + timeLimit + ", gData=" + this.gData + ", roundResult=(userInput='"+ this.userInput + "', timeTaken=" + this.timeTaken + ", roundScore=" + this.roundScore + "))";
+        return "RoundData(prompt='" + this.prompt + "', timeLimit=" + timeLimit + ", gameData=" + this.gData + ", roundResult=(userInput='"+ this.userInput + "', timeTaken=" + this.timeTaken + ", roundScore=" + this.roundScore + "))";
     }
 }

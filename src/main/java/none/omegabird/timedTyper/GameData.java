@@ -2,6 +2,7 @@ package none.omegabird.timedTyper;
 
 import java.util.Objects;
 
+@SuppressWarnings("unused")
 public class GameData {
     private long score;
     private float multiplier;

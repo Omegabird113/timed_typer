@@ -39,7 +39,7 @@ public final class RoundGen {
             "congratulations", "absolutely", "photosynthesis", "monstrosity",
             "university", "cheeseburger", "accommodate", "suburban", "pizazz",
             "assuming", "stewardess", "xylophone", "overzealous", "withdrawal",
-            "wednesday", "vulnerable", "visualization", "versatile", "veterinary",
+            "vulnerable", "visualization", "versatile", "veterinary",
             "vaccination", "vegetarian", "unanimous", "transmission", "trajectory",
             "temporary", "tournament", "temperature", "surveillance", "psychology",
             "responsibility", "recommendation", "pronunciation", "practitioner",
