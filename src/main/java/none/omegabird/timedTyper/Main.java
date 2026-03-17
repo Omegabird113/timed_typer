@@ -7,7 +7,7 @@ public class Main {
     private static final String roundAutoSaveLocation = ".lastGame";
 
     static void main(String[] args) {
-        GameData gd = Objects.requireNonNullElse(GameDataSaveManager.tryLoad(args), new GameData(0,1f,1, new Scorer()));
+        GameData gd = Objects.requireNonNullElse(GameDataSaveManager.tryLoad(args[0]), new GameData(0,1f,1, new Scorer()));
         final Scanner scanner = new Scanner(System.in);
         final InputHandler ih = new InputHandler(scanner);
 

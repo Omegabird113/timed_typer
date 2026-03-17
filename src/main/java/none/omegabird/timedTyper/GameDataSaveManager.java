@@ -11,30 +11,25 @@ final public class GameDataSaveManager {
         return new GameData(0, 1f, 1, new Scorer());
     }
 
-    public static GameData tryLoad(String[] args) {
-        if (args.length > 0) {
-            String gameFileLocation = args[0];
-            File file = new File(gameFileLocation);
-            if (!file.exists()) {
-                System.out.printf("ERROR: Invalid save file, it does not exist..\ndue to this, the file (%s) has not been loaded.\n", gameFileLocation);
-                return generatePlainGameData();
-            } else if (!gameFileLocation.endsWith(".json")) {
-                System.out.printf("ERROR: Invalid save file, it must be of a .json format.\ndue to this, the file (%s) has not been loaded.\n", gameFileLocation);
-                return generatePlainGameData();
-            } else {
-                ObjectMapper objectMapper = new ObjectMapper();
-                try {
-                    SerializableGameData sgd = objectMapper.readValue(file, SerializableGameData.class);
-                    System.out.println("Loaded game at " + gameFileLocation + " successfully. You have a score of " + sgd.getScore() + " to start.");
-                    return new GameData(sgd, new Scorer());
-                } catch (Exception e) {
-                    System.out.printf("ERROR: The file failed to load into the Game Object. \ndue to this, the file (%s) has not been loaded.\n", gameFileLocation);
-                    System.out.println("(exact error: " + e + ")");
-                    return generatePlainGameData();
-                }
-            }
-        } else {
+    public static GameData tryLoad(String location) {
+        File file = new File(location);
+        if (!file.exists()) {
+            System.out.printf("ERROR: Invalid save file, it does not exist..\ndue to this, the file (%s) has not been loaded.\n", location);
             return generatePlainGameData();
+        } else if (!location.endsWith(".json")) {
+            System.out.printf("ERROR: Invalid save file, it must be of a .json format.\ndue to this, the file (%s) has not been loaded.\n", location);
+            return generatePlainGameData();
+        } else {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                SerializableGameData sgd = objectMapper.readValue(file, SerializableGameData.class);
+                System.out.println("Loaded game at " + location + " successfully. You have a score of " + sgd.getScore() + " to start.");
+                return new GameData(sgd, new Scorer());
+            } catch (Exception e) {
+                System.out.printf("ERROR: The file failed to load into the Game Object. \ndue to this, the file (%s) has not been loaded.\n", location);
+                System.out.println("(exact error: " + e + ")");
+                return generatePlainGameData();
+            }
         }
     }
 
@@ -44,7 +39,12 @@ final public class GameDataSaveManager {
         File file = new File(filename + ".json");
         try {
             objectMapper.writeValue(file, sgd);
-            return true;
+            if (!file.exists()) {
+                System.out.printf("ERROR: Failed to save the game.\nIt was not saved properly to " + filename + ".json.");
+                return false;
+            } else {
+                return true;
+            }
         } catch (Exception e) {
             System.out.printf("ERROR: Failed to save the game.\nIt was not saved properly to " + filename + ".json.\n(exact error: " + e + ")\n");
             return false;
