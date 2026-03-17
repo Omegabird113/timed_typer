@@ -1,15 +1,26 @@
 package none.omegabird.timedTyper;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
-    private static final String roundAutoSaveLocation = ".lastGame";
+    private static final String roundAutoSaveLocation = GameDataSaveManager.getGameDataPath() + "/" + ".lastGame";
 
     static void main(String[] args) {
-        GameData gd = Objects.requireNonNullElse(GameDataSaveManager.tryLoad(args[0]), new GameData(0,1f,1, new Scorer()));
         final Scanner scanner = new Scanner(System.in);
         final InputHandler ih = new InputHandler(scanner);
+
+        GameData gd;
+        System.out.print("Would you like to load your previous gam from the auto-save location? ");
+        String loadInput = scanner.nextLine();
+        if (loadInput.equalsIgnoreCase("yes")) {
+            try {
+                gd = GameDataSaveManager.tryLoad(args[0]);
+            } catch (IndexOutOfBoundsException e) {
+                gd = new GameData(0, 1f, 1, new Scorer());
+            }
+        } else {
+            gd = new GameData(0, 1f, 1, new Scorer());
+        }
 
         System.out.println("Press enter to play: ");
         scanner.nextLine();

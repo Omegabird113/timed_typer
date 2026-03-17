@@ -3,9 +3,29 @@ package none.omegabird.timedTyper;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.nio.file.Path;
 
 final public class GameDataSaveManager {
     private GameDataSaveManager() {}
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    public static Path getGameDataPath() {
+        final String os = System.getProperty("os.name").toLowerCase();
+        String userHome = System.getProperty("user.home");
+
+        Path gameDataPath;
+        if (os.contains("win")) {
+            gameDataPath = Path.of(System.getenv("%APPDATA%"), "TimedTyper");
+        } else if (os.contains("mac")) {
+            gameDataPath = Path.of(userHome, "Library", "Application Support", "TimedTyper");
+        } else { // Linux case
+            gameDataPath = Path.of(userHome, ".lcoal", "share", "TimedTyper");
+        }
+
+        gameDataPath.toFile().mkdirs();
+        return gameDataPath;
+
+    }
 
     private static GameData generatePlainGameData() {
         return new GameData(0, 1f, 1, new Scorer());
