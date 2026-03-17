@@ -11,11 +11,11 @@ public class GameDataSerializationTest {
     private static final Random random = new Random();
     private static final Scorer scorer = new Scorer();
     @TempDir
-    Path tempDir;
+    private Path tempDir;
 
     @Test
     void serializationTest() {
-        String location = tempDir.toString() + "/_tmp";
+        String location = tempDir + "/_tmp";
 
         GameData gameData = new GameData(random.nextInt(0, 10000), random.nextFloat(0.5f, 1.5f), random.nextInt(1, 5), scorer);
         GameDataSaveManager.trySave(location, gameData);
