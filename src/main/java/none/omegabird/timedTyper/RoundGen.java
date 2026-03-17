@@ -78,7 +78,7 @@ public final class RoundGen {
     }
 
     private static String getRandomWord(int difficulty) {
-        return switch (difficulty) {
+        return switch (difficulty) { // Difficulty 3 is skipped intentionally for score balance reasons
             case 1 -> randomFromList(LEVEL_1_WORDS);
             case 2 -> randomFromList(LEVEL_2_WORDS);
             case 4 -> randomFromList(LEVEL_4_WORDS);

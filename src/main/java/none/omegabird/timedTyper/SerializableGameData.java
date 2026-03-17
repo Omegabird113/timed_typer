@@ -3,8 +3,8 @@ package none.omegabird.timedTyper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SerializableGameData {
-    // This should ONLY be used as an interim object to load/save GameData objects from/to files
+class SerializableGameData {
+    // This should ONLY be used as an interim object by GameDataSaveManager.
 
     private final long score;
     private final float multiplier;
