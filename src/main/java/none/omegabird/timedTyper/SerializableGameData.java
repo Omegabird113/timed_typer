@@ -7,8 +7,8 @@ public class SerializableGameData {
     // This should ONLY be used as an interim object to load/save GameData objects from/to files
 
     private final long score;
-    public final float multiplier;
-    public final int difficulty;
+    private final float multiplier;
+    private final int difficulty;
 
     @JsonCreator
     public SerializableGameData(
