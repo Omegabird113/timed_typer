@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Main {
     private static final String roundAutoSaveLocation = ".lastGame";
 
-    public static void main(String[] args) {
-        GameData gd = Objects.requireNonNullElse(GameDataSaveManager.tryLoad(args), new GameData(0,1f,1, new Scorer(), new Scanner(System.in)));
-        final Scanner scanner = gd.getScanner();
-        final InputHandler ih = new InputHandler();
+    static void main(String[] args) {
+        GameData gd = Objects.requireNonNullElse(GameDataSaveManager.tryLoad(args), new GameData(0,1f,1, new Scorer()));
+        final Scanner scanner = new Scanner(System.in);
+        final InputHandler ih = new InputHandler(scanner);
 
         System.out.println("Press enter to play: ");
         scanner.nextLine();

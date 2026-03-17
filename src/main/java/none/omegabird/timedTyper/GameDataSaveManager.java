@@ -3,13 +3,12 @@ package none.omegabird.timedTyper;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
-import java.util.Scanner;
 
 final public class GameDataSaveManager {
     private GameDataSaveManager() {}
 
     private static GameData generatePlainGameData() {
-        return new GameData(0, 1f, 1, new Scorer(), new Scanner(System.in));
+        return new GameData(0, 1f, 1, new Scorer());
     }
 
     public static GameData tryLoad(String[] args) {
@@ -27,7 +26,7 @@ final public class GameDataSaveManager {
                 try {
                     SerializableGameData sgd = objectMapper.readValue(file, SerializableGameData.class);
                     System.out.println("Loaded game at " + gameFileLocation + " successfully. You have a score of " + sgd.score + " to start.");
-                    return new GameData(sgd, new Scorer(), new Scanner(System.in));
+                    return new GameData(sgd, new Scorer());
                 } catch (Exception e) {
                     System.out.printf("ERROR: The file failed to load into the Game Object. \ndue to this, the file (%s) has not been loaded.\n", gameFileLocation);
                     System.out.println("(exact error: " + e + ")");

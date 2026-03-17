@@ -8,22 +8,19 @@ public class GameData {
     private float multiplier;
     private int difficulty;
     private final ScoreCalculator scoreCalculator;
-    private final Scanner scanner;
 
-    GameData(long startScore, float startMultiplier, int startDifficulty, ScoreCalculator scoreCalculator, Scanner scanner) {
+    GameData(long startScore, float startMultiplier, int startDifficulty, ScoreCalculator scoreCalculator) {
         this.score = Math.max(startScore, 0);
         this.multiplier = Math.max(startMultiplier, 0f);
         this.difficulty = Math.max(startDifficulty, 1);
         this.scoreCalculator = Objects.requireNonNullElse(scoreCalculator, new Scorer());
-        this.scanner = Objects.requireNonNull(scanner);
     }
-    GameData(SerializableGameData sgd, ScoreCalculator scoreCalculator, Scanner scanner) {
+    GameData(SerializableGameData sgd, ScoreCalculator scoreCalculator) {
         Objects.requireNonNull(sgd);
         this.score = sgd.score;
         this.multiplier = sgd.multiplier;
         this.difficulty = sgd.difficulty;
         this.scoreCalculator = Objects.requireNonNullElse(scoreCalculator, new Scorer());
-        this.scanner = Objects.requireNonNull(scanner);
     }
 
     public long getScore() {
@@ -52,10 +49,6 @@ public class GameData {
 
     public ScoreCalculator getScoreCalculator() {
         return this.scoreCalculator;
-    }
-
-    public Scanner getScanner() {
-        return this.scanner;
     }
 
     @Override
