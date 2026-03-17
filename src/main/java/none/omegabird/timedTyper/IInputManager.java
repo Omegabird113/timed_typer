@@ -1,5 +1,5 @@
 package none.omegabird.timedTyper;
 
-public interface InputManager {
+public interface IInputManager {
     GameData callRound(RoundData rData);
 }

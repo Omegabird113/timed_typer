@@ -6,15 +6,15 @@ public class GameData {
     private long score;
     private float multiplier;
     private int difficulty;
-    private final ScoreCalculator scoreCalculator;
+    private final IScoreCalculator scoreCalculator;
 
-    GameData(long startScore, float startMultiplier, int startDifficulty, ScoreCalculator scoreCalculator) {
+    GameData(long startScore, float startMultiplier, int startDifficulty, IScoreCalculator scoreCalculator) {
         this.score = Math.max(startScore, 0);
         this.multiplier = Math.max(startMultiplier, 0f);
         this.difficulty = Math.max(startDifficulty, 1);
         this.scoreCalculator = Objects.requireNonNullElse(scoreCalculator, new Scorer());
     }
-    GameData(SerializableGameData sgd, ScoreCalculator scoreCalculator) {
+    GameData(SerializableGameData sgd, IScoreCalculator scoreCalculator) {
         Objects.requireNonNull(sgd);
         this.score = sgd.getScore();
         this.multiplier = sgd.getMultiplier();
@@ -46,7 +46,7 @@ public class GameData {
         this.difficulty = difficulty;
     }
 
-    public ScoreCalculator getScoreCalculator() {
+    public IScoreCalculator getScoreCalculator() {
         return this.scoreCalculator;
     }
 

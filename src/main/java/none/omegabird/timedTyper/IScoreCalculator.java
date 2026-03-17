@@ -1,5 +1,5 @@
 package none.omegabird.timedTyper;
 
-public interface ScoreCalculator {
+public interface IScoreCalculator {
     long calcRoundScore(RoundData rData);
 }

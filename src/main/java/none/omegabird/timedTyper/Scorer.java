@@ -3,7 +3,7 @@ package none.omegabird.timedTyper;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import java.util.Random;
 
-public class Scorer implements ScoreCalculator{
+public class Scorer implements IScoreCalculator {
     private static final Random RANDOM = new Random();
     private static final LevenshteinDistance ld = LevenshteinDistance.getDefaultInstance();
 
