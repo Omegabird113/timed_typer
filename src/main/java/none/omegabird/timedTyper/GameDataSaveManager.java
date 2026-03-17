@@ -24,9 +24,15 @@ final public class GameDataSaveManager {
                 return generatePlainGameData();
             } else {
                 ObjectMapper objectMapper = new ObjectMapper();
-                SerializableGameData sgd = objectMapper.readValue(file, SerializableGameData.class);
-                System.out.println("Loaded game at " + gameFileLocation + " successfully. You have a score of " + sgd.score + " to start.");
-                return new GameData(sgd, new Scorer(), new Scanner(System.in));
+                try {
+                    SerializableGameData sgd = objectMapper.readValue(file, SerializableGameData.class);
+                    System.out.println("Loaded game at " + gameFileLocation + " successfully. You have a score of " + sgd.score + " to start.");
+                    return new GameData(sgd, new Scorer(), new Scanner(System.in));
+                } catch (Exception e) {
+                    System.out.printf("ERROR: The file failed to load into the Game Object. \ndue to this, the file (%s) has not been loaded.\n", gameFileLocation);
+                    System.out.println("(exact error: " + e + ")");
+                    return generatePlainGameData();
+                }
             }
         } else {
             return generatePlainGameData();
@@ -37,7 +43,12 @@ final public class GameDataSaveManager {
         SerializableGameData sgd = new SerializableGameData(gd);
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File(filename + ".json");
-        objectMapper.writeValue(file, sgd);
-        return true;
+        try {
+            objectMapper.writeValue(file, sgd);
+            return true;
+        } catch (Exception e) {
+            System.out.printf("ERROR: Failed to save the game.\nIt was not saved properly to " + filename + ".json.\n(exact error: " + e + ")\n");
+            return false;
+        }
     }
 }
