@@ -29,5 +29,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Publish JUnit Test Report
       uses: mikepenz/action-junit-report@49b2ca06f62aa7ef83ae6769a2179271e160d8e4
+      with:
+        report_paths: '**/target/surefire-reports/TEST-*.xml'
     - name: Maven Dependency Tree Dependency Submission
       uses: advanced-security/maven-dependency-submission-action@v5.0.0
