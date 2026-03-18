@@ -17,7 +17,7 @@ public class Console {
         return gd;
     }
 
-    public static GameData load(String[] args, Scanner scanner) {
+    public static GameData loadGameData(String[] args, Scanner scanner) {
         GameData gd;
         try {
             if (!args[0].isEmpty()) {
