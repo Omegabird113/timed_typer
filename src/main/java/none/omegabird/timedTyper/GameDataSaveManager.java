@@ -5,7 +5,7 @@ import tools.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.nio.file.Path;
 
-final public class GameDataSaveManager {
+abstract public class GameDataSaveManager {
     private GameDataSaveManager() {}
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
