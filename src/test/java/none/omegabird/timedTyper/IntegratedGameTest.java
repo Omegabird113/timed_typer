@@ -12,13 +12,14 @@ public class IntegratedGameTest {
     private static final Scorer scorer = new Scorer();
     private static final int totalStringSelectionWeight = 100;
     private static final int randomStringSelectionWeight = 10;
+    private static final int numberOfRounds = 4000;
 
     @Test
     void IntegrationTest() {
         int difficulty = gameData.getDifficulty();
 
         //each round
-        for (int i = 0; i < 4000; i++) {
+        for (int i = 0; i < numberOfRounds; i++) {
             RoundData roundData = RoundGen.genRoundData(gameData);
 
             String prompt = roundData.getPrompt();
@@ -61,7 +62,7 @@ public class IntegratedGameTest {
             }
         }
         if (gameData.getDifficulty() < 4) {
-            Assertions.fail("Difficulty too low after 1000 rounds.");
+            Assertions.fail("Difficulty too low after " + numberOfRounds + " rounds.");
         }
     }
 }
