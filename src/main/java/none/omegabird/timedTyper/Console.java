@@ -2,9 +2,9 @@ package none.omegabird.timedTyper;
 
 import java.util.Scanner;
 
-import static none.omegabird.timedTyper.Main.roundAutoSaveLocation;
-
 class Console {
+    private static final String roundAutoSaveLocation = GameDataSaveManager.getGameDataPath() + "/" + ".lastGame";
+
     private static GameData askForLastGameLoad(Scanner scanner) {
         GameData gd;
         System.out.print("Would you like to load your previous game from the auto-save location? ");
