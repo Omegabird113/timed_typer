@@ -153,9 +153,9 @@ public final class RoundGen {
     }
 
     public static int genDifficulty(long score) {
-        if (score < 235) {
+        if (score < 305) {
             return 1;
-        } else if (score < 1360) {
+        } else if (score < 3250) {
             return 2;
         } else {
             return 4;
