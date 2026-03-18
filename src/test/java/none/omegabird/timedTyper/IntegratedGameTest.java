@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class IntegratedGameTest {
     private static final Random random = new Random();
-    private static final GameData gameData = new GameData(0,1f,1, new Scorer());
+    private static final GameData gameData = new GameData(0,1f,1);
     private static final Scorer scorer = new Scorer();
     private static final int totalStringSelectionWeight = 100;
     private static final int randomStringSelectionWeight = 10;

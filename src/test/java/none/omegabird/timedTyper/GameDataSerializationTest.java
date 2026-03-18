@@ -9,7 +9,6 @@ import java.util.Random;
 
 public class GameDataSerializationTest {
     private static final Random random = new Random();
-    private static final Scorer scorer = new Scorer();
     @TempDir
     private Path tempDir;
 
@@ -17,7 +16,7 @@ public class GameDataSerializationTest {
     void serializationTest() {
         String location = tempDir + "/_tmp";
 
-        GameData gameData = new GameData(random.nextInt(0, 10000), random.nextFloat(0.5f, 1.5f), random.nextInt(1, 5), scorer);
+        GameData gameData = new GameData(random.nextInt(0, 10000), random.nextFloat(0.5f, 1.5f), random.nextInt(1, 5));
         GameDataSaveManager.trySave(location, gameData);
 
         GameData newGameData = GameDataSaveManager.tryLoad(location + ".json");

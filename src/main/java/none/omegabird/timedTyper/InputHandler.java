@@ -8,13 +8,13 @@ import java.util.Scanner;
 
 public class InputHandler implements IInputManager {
     final Scanner scanner;
-    InputHandler(Scanner scanner) {
+    final IScoreCalculator scoreCalculator;
+    InputHandler(Scanner scanner, IScoreCalculator scoreCalculator) {
         this.scanner = scanner;
+        this.scoreCalculator = scoreCalculator;
     }
 
     public RoundData promptAndTimeUser(RoundData rData) {
-        IScoreCalculator scoreCalc = rData.getGameData().getScoreCalculator();
-
         System.out.printf("You have %d seconds to enter the following:\n%s\n", Math.round(rData.getTimeLimit()), WordUtils.wrap(rData.getPrompt(), 145));
         System.out.flush();
 
@@ -30,7 +30,7 @@ public class InputHandler implements IInputManager {
 
         rData.setTimeTaken((float) timeTaken);
         rData.setUserInput(userInput);
-        long score = scoreCalc.calcRoundScore(rData);
+        long score = scoreCalculator.calcRoundScore(rData);
         rData.setRoundScore(score);
         return rData;
     }

@@ -7,7 +7,7 @@ public class Main {
 
     static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
-        final InputHandler ih = new InputHandler(scanner);
+        final InputHandler ih = new InputHandler(scanner, new Scorer());
 
         GameData gd;
         System.out.print("Would you like to load your previous gam from the auto-save location? ");
@@ -16,10 +16,10 @@ public class Main {
             try {
                 gd = GameDataSaveManager.tryLoad(args[0]);
             } catch (IndexOutOfBoundsException e) {
-                gd = new GameData(0, 1f, 1, new Scorer());
+                gd = new GameData(0, 1f, 1);
             }
         } else {
-            gd = new GameData(0, 1f, 1, new Scorer());
+            gd = new GameData(0, 1f, 1);
         }
 
         System.out.println("Press enter to play: ");

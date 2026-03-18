@@ -28,7 +28,7 @@ final public class GameDataSaveManager {
     }
 
     private static GameData generatePlainGameData() {
-        return new GameData(0, 1f, 1, new Scorer());
+        return new GameData(0, 1f, 1);
     }
 
     public static GameData tryLoad(String location) {
@@ -44,7 +44,7 @@ final public class GameDataSaveManager {
             try {
                 SerializableGameData sgd = objectMapper.readValue(file, SerializableGameData.class);
                 System.out.println("Loaded game at " + location + " successfully. You have a score of " + sgd.getScore() + " to start.");
-                return new GameData(sgd, new Scorer());
+                return new GameData(sgd);
             } catch (Exception e) {
                 System.out.printf("ERROR: The file failed to load into the Game Object. \ndue to this, the file (%s) has not been loaded.\n", location);
                 System.out.println("(exact error: " + e + ")");
