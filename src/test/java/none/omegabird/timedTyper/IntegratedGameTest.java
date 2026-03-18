@@ -19,7 +19,7 @@ public class IntegratedGameTest {
         int difficulty = gameData.getDifficulty();
 
         //each round
-        for (int i = 0; i < numberOfRounds; i++) {
+        for (int i = 1; i <= numberOfRounds; i++) {
             RoundData roundData = RoundGen.genRoundData(gameData);
 
             String prompt = roundData.getPrompt();
@@ -59,6 +59,8 @@ public class IntegratedGameTest {
             if (gameData.getDifficulty() != difficulty) {
                 difficulty = gameData.getDifficulty();
                 System.out.println("As of round " + i + " difficulty is " + difficulty + ".");
+            } else if (i == numberOfRounds) {
+                System.out.println("As of final score is " + gameData.getScore() + ".");
             }
         }
         if (gameData.getDifficulty() < 4) {
