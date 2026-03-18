@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Build & Dependency Submission
+name: Build, Test, & Dependency Submission
 
 on:
   push:
@@ -30,6 +30,8 @@ jobs:
     - name: Publish JUnit Test Report
       uses: mikepenz/action-junit-report@49b2ca06f62aa7ef83ae6769a2179271e160d8e4
       with:
+        include_passed: true
+        detailed_summary: true
         report_paths: '**/target/surefire-reports/TEST-*.xml'
     - name: Maven Dependency Tree Dependency Submission
       uses: advanced-security/maven-dependency-submission-action@v5.0.0
