@@ -10,16 +10,20 @@ public class Main {
         final InputHandler ih = new InputHandler(scanner, new Scorer());
 
         GameData gd;
-        System.out.print("Would you like to load your previous game from the auto-save location? ");
-        String loadInput = scanner.nextLine();
-        if (loadInput.equalsIgnoreCase("yes")) {
-            try {
-                gd = GameDataSaveManager.tryLoad(args[0]);
-            } catch (IndexOutOfBoundsException e) {
+        if (!args[0].isEmpty()) {
+            gd = GameDataSaveManager.tryLoad(args[0]);
+        } else {
+            System.out.print("Would you like to load your previous game from the auto-save location? ");
+            String loadInput = scanner.nextLine();
+            if (loadInput.equalsIgnoreCase("yes")) {
+                try {
+                    gd = GameDataSaveManager.tryLoad(roundAutoSaveLocation);
+                } catch (IndexOutOfBoundsException e) {
+                    gd = new GameData(0, 1f, 1);
+                }
+            } else {
                 gd = new GameData(0, 1f, 1);
             }
-        } else {
-            gd = new GameData(0, 1f, 1);
         }
 
         System.out.println("Press enter to play: ");
