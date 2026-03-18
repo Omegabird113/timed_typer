@@ -55,12 +55,7 @@ class GameDataSaveManager {
         File file = new File(filename + ".json");
         try {
             objectMapper.writeValue(file, sgd);
-            if (!file.exists()) {
-                System.out.printf("ERROR: Failed to save the game.\nIt was not saved properly to " + filename + ".json.");
-                return false;
-            } else {
-                return true;
-            }
+            return true;
         } catch (Exception e) {
             System.out.printf("ERROR: Failed to save the game.\nIt was not saved properly to " + filename + ".json.\n(exact error: " + e + ")\n");
             return false;
