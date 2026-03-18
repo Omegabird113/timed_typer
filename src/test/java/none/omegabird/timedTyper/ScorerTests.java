@@ -8,7 +8,7 @@ import java.util.Random;
 public class ScorerTests {
     private static final Random random = new Random();
     private static final Scorer scorer = new Scorer();
-    private static final GameData gameData = new GameData(0,10f,1);
+    private static final GameData gameData = GameData.plain();
 
     @Test
     public void noAccuracyTest(){
@@ -74,8 +74,8 @@ public class ScorerTests {
         // High Multiplier, High Accuracy, Low Time Taken
 
         Scorer scorer = new Scorer();
-        GameData gameData = new GameData(0,3f,1);
-        RoundData roundData = new RoundData("the quick brown fox jumps over the lazy dog", 9f, gameData);
+        GameData gd = new GameData(0,3f,1);
+        RoundData roundData = new RoundData("the quick brown fox jumps over the lazy dog", 9f, gd);
 
         roundData.setTimeTaken(4f);
         roundData.setUserInput("the quick brown fox jumps over the lazy dog");

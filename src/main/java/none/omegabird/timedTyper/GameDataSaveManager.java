@@ -27,18 +27,14 @@ final public class GameDataSaveManager {
 
     }
 
-    private static GameData generatePlainGameData() {
-        return new GameData(0, 1f, 1);
-    }
-
     public static GameData tryLoad(String location) {
         File file = new File(location);
         if (!file.exists()) {
             System.out.printf("ERROR: Invalid save file, it does not exist..\ndue to this, the file (%s) has not been loaded.\n", location);
-            return generatePlainGameData();
+            return GameData.plain();
         } else if (!location.endsWith(".json")) {
             System.out.printf("ERROR: Invalid save file, it must be of a .json format.\ndue to this, the file (%s) has not been loaded.\n", location);
-            return generatePlainGameData();
+            return GameData.plain();
         } else {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
@@ -48,7 +44,7 @@ final public class GameDataSaveManager {
             } catch (Exception e) {
                 System.out.printf("ERROR: The file failed to load into the Game Object. \ndue to this, the file (%s) has not been loaded.\n", location);
                 System.out.println("(exact error: " + e + ")");
-                return generatePlainGameData();
+                return GameData.plain();
             }
         }
     }

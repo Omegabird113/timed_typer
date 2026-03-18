@@ -48,4 +48,8 @@ public class GameData {
     public String toString() {
         return "GameData(score=" + this.score + ", multiplier=" + this.multiplier + ", difficulty=" + this.difficulty + ")";
     }
+
+    public static GameData plain() {
+        return new GameData(0, 1f, 1);
+    }
 }

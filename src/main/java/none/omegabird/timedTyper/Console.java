@@ -12,7 +12,7 @@ public class Console {
         if (loadInput.equalsIgnoreCase("yes")) {
             gd = GameDataSaveManager.tryLoad(roundAutoSaveLocation);
         } else {
-            gd = new GameData(0, 1f, 1);
+            gd = GameData.plain();
         }
         return gd;
     }
