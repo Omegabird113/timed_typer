@@ -37,4 +37,5 @@ jobs:
         detailed_summary: true
         report_paths: '**/target/surefire-reports/TEST-*.xml'
     - name: Maven Dependency Tree Dependency Submission
+      if: github.repository == 'Omegabird113/timed_typer'
       uses: advanced-security/maven-dependency-submission-action@v5.0.0
