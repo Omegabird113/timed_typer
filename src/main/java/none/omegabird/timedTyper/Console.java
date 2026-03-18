@@ -48,7 +48,7 @@ class Console {
                 if (!saveInput.equalsIgnoreCase("no")) {
                     boolean isNameValid = false;
                     while(!isNameValid) {
-                        System.out.print("Enter the location & name of your save? (don't include the file extension)): ");
+                        System.out.print("Enter the location & name of your save? (don't include the file extension): ");
                         String fileNameInput = scanner.nextLine().trim();
                         isNameValid = GameDataSaveManager.trySave(fileNameInput, gd);
                     }

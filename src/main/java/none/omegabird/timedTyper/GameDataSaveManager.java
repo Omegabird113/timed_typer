@@ -5,7 +5,7 @@ import tools.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.nio.file.Path;
 
-abstract class GameDataSaveManager {
+class GameDataSaveManager {
     private GameDataSaveManager() {}
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -15,11 +15,11 @@ abstract class GameDataSaveManager {
 
         Path gameDataPath;
         if (os.contains("win")) {
-            gameDataPath = Path.of(System.getenv("%APPDATA%"), "TimedTyper");
+            gameDataPath = Path.of(System.getenv("APPDATA"), "TimedTyper");
         } else if (os.contains("mac")) {
             gameDataPath = Path.of(userHome, "Library", "Application Support", "TimedTyper");
         } else { // Linux case
-            gameDataPath = Path.of(userHome, ".lcoal", "share", "TimedTyper");
+            gameDataPath = Path.of(userHome, ".local", "share", "TimedTyper");
         }
 
         gameDataPath.toFile().mkdirs();
