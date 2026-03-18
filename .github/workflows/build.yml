@@ -1,12 +1,4 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Build, Test, & Dependency Submission
+name: Build & Test
 
 on:
   push:
@@ -17,7 +9,7 @@ permissions:
   checks: write
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,6 +28,3 @@ jobs:
         include_passed: true
         detailed_summary: true
         report_paths: '**/target/surefire-reports/TEST-*.xml'
-    - name: Maven Dependency Tree Dependency Submission
-      if: github.repository == 'Omegabird113/timed_typer'
-      uses: advanced-security/maven-dependency-submission-action@v5.0.0
