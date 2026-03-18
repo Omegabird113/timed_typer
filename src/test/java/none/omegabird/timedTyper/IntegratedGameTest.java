@@ -18,7 +18,7 @@ public class IntegratedGameTest {
         int difficulty = gameData.getDifficulty();
 
         //each round
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 4000; i++) {
             RoundData roundData = RoundGen.genRoundData(gameData);
 
             String prompt = roundData.getPrompt();
