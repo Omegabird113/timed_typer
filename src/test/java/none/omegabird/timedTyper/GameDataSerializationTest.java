@@ -16,7 +16,7 @@ public class GameDataSerializationTest {
     void serializationTest() {
         String location = tempDir + "/_tmp";
 
-        GameData gameData = new GameData(random.nextInt(0, 10000), random.nextFloat(0.5f, 1.5f), random.nextInt(1, 5));
+        GameData gameData = new GameData(random.nextInt(0, 10000), random.nextFloat(0.5f, 1.5f), random.nextInt(1, 5)); // don't copy difficulty code, it generates difficulty values that are invalid, though that's fine to test serialization.
         GameDataSaveManager.trySave(location, gameData);
 
         GameData newGameData = GameDataSaveManager.tryLoad(location + ".json");
