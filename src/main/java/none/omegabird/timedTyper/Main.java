@@ -10,7 +10,7 @@ public class Main {
         final InputHandler ih = new InputHandler(scanner, new Scorer());
 
         GameData gd;
-        System.out.print("Would you like to load your previous gam from the auto-save location? ");
+        System.out.print("Would you like to load your previous game from the auto-save location? ");
         String loadInput = scanner.nextLine();
         if (loadInput.equalsIgnoreCase("yes")) {
             try {
