@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static none.omegabird.timedTyper.Main.roundAutoSaveLocation;
 
-public class Console {
+class Console {
     private static GameData askForLastGameLoad(Scanner scanner) {
         GameData gd;
         System.out.print("Would you like to load your previous game from the auto-save location? ");
