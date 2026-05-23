@@ -1,4 +1,4 @@
-package none.omegabird.timedTyper;
+package io.github.omegabird113.timedtyper;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
