@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>none.omegabird</groupId>
-    <artifactId>timedTyper</artifactId>
-    <version>1.0</version>
+    <groupId>io.github.omegabird113</groupId>
+    <artifactId>timedtyper</artifactId>
+    <version>1.3</version>
 
     <properties>
         <maven.compiler.source>26</maven.compiler.source>
