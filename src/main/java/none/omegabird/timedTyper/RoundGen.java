@@ -3,7 +3,7 @@ package none.omegabird.timedTyper;
 import java.util.List;
 import java.util.Random;
 
-public abstract class RoundGen {
+public final class RoundGen {
     private RoundGen() {}
 
     private static final Random RANDOM = new Random();

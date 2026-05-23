@@ -3,7 +3,7 @@ package none.omegabird.timedTyper;
 import java.util.Scanner;
 
 class Console {
-    private static final String roundAutoSaveLocation = GameDataSaveManager.getGameDataPath() + "/" + ".lastGame";
+    private static final String roundAutoSaveLocation = GameDataSaveManager.getGameDataPath() + "/.lastGame";
 
     private static GameData askForLastGameLoad(Scanner scanner) {
         GameData gd;
@@ -43,7 +43,11 @@ class Console {
             System.out.print("\nEnter 'stop' to stop, to end the game or anything else to continue: ");
             String input = scanner.nextLine().trim();
             if (input.equalsIgnoreCase("stop")) {
-                System.out.print("Would you like to save this game? (Note: no mater what, the latest round is always auto-saved to .lastGame.json)\nEnter 'no' to not save somewhere else: ");
+                System.out.print("""
+                        Would you like to save this game? (Note: no mater what, the latest round is always auto-saved to .lastGame.json)
+                        Enter 'no' to not save somewhere else:
+                        """
+                );
                 String saveInput = scanner.nextLine();
                 if (!saveInput.equalsIgnoreCase("no")) {
                     boolean isNameValid = false;

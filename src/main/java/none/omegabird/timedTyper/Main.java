@@ -2,7 +2,7 @@ package none.omegabird.timedTyper;
 
 import java.util.Scanner;
 
-public class Main {
+class Main {
     static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         final GameData gd = Console.loadGameData(args, scanner);

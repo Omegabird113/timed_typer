@@ -3,7 +3,7 @@ package none.omegabird.timedTyper;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import java.util.Random;
 
-public class Scorer implements IScoreCalculator {
+class Scorer implements IScoreCalculator {
     private static final Random RANDOM = new Random();
     private static final LevenshteinDistance ld = LevenshteinDistance.getDefaultInstance();
 
@@ -31,7 +31,7 @@ public class Scorer implements IScoreCalculator {
         int distance = ld.apply(prompt, userInput);
         int maximumPotentialLength = Math.max(Math.max(prompt.length(), userInput.length()), 1);
         double accuracy = 1 - ((double) distance / maximumPotentialLength);
-        accuracy = Math.max(0, Math.min(accuracy, 1));
+        accuracy = Math.clamp(accuracy, 0, 1);
         if (accuracy < 0.5) { //prevents keyboard mashing or really typo-ed inputs from getting credit.
             accuracy = 0;
         }

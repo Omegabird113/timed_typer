@@ -6,7 +6,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Scanner;
 
-record InputHandler(Scanner scanner, IScoreCalculator scoreCalculator) implements IInputManager {
+public record InputHandler(Scanner scanner, IScoreCalculator scoreCalculator) implements IInputManager {
     public RoundData promptAndTimeUser(RoundData rData) {
         System.out.printf("You have %d seconds to enter the following:\n%s\n", Math.round(rData.getTimeLimit()), WordUtils.wrap(rData.getPrompt(), 145));
         System.out.flush();

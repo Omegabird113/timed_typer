@@ -13,6 +13,7 @@ public class GameData {
         this.multiplier = Math.max(startMultiplier, 0f);
         this.difficulty = Math.max(startDifficulty, 1);
     }
+
     GameData(SerializableGameData sgd) {
         Objects.requireNonNull(sgd);
         this.score = sgd.getScore();
